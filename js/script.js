@@ -1,5 +1,6 @@
 $(document).ready(
   function() {
+    //visualizzo la lista
     getElement();
 
     //avvia funzione al click sul bottone "Aggiungi"
@@ -19,11 +20,6 @@ $(document).ready(
       var this_attr = $(this).parents(".list-element").attr("data-attr");
       removeElement(this_attr);
     });
-
-    // //avvia funzione al doppio click sul bottone "Elimina tutto"
-    // $(".delete-all").dblclick(function(){
-    //   $(".todo-list").html("");
-    // });
   }
 );
 
@@ -39,6 +35,7 @@ function getElement(){
       method: "GET",
       success: function (data) {
         for (var i = 0; i < data.length; i++){
+          //Handlebars
           var source = $("#template").html();
           var template = Handlebars.compile(source);
 
@@ -58,7 +55,6 @@ function getElement(){
   );
 }
 
-
 //FUNZIONE aggiunta elemento
 function addElement(){
   var todoElemento = $(".input").val();
@@ -68,7 +64,7 @@ function addElement(){
         url: "http://157.230.17.132:3018/todos/",
         method: "POST",
         data: {
-          "text" : todoElemento
+          "text" : todoElemento,
         },
         success: function (data) {
           getElement();
