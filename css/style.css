@@ -1,0 +1,21 @@
+/* Generali */
+body {
+font-family: 'Roboto', sans-serif;
+}
+
+li{
+  list-style-type: none;
+  padding-bottom: 5px;
+}
+/* fine generali */
+
+/* Todo list */
+.todo {
+  padding-left: 20px;
+}
+
+.delete {
+  font-size: 10px;
+  padding: 1px;
+}
+/* fine todo list */
