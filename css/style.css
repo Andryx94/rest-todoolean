@@ -3,6 +3,10 @@ body {
 font-family: 'Roboto', sans-serif;
 }
 
+ul {
+  padding: 0;
+}
+
 li{
   list-style-type: none;
   padding-bottom: 5px;
@@ -10,10 +14,6 @@ li{
 /* fine generali */
 
 /* Todo list */
-.todo {
-  padding-left: 20px;
-}
-
 .delete {
   font-size: 10px;
   padding: 1px;

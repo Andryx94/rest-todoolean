@@ -18,21 +18,22 @@
       <h1>Todo List</h1>
 
       <!-- todo list -->
-      <div>
-        <ul class="todo-list">
-        </ul>
-      </div>
+      <ul class="todo-list">
+      </ul>
       <!-- fine todo list -->
 
-      <input type="text" name="" value="" placeholder="Inserisci un prodotto" class="input">
-      <button type="button" name="button" class="add">Aggiungi</button>
-      <!-- <button type="button" name="button" class="delete-all">Elimina tutto (doppio click)</button> -->
+      <!-- todo input -->
+      <div class="todo-input">
+        <input type="text" name="" value="" placeholder="Inserisci testo" class="input">
+        <button type="button" name="button" class="add">Aggiungi</button>
+      </div>
+      <!-- fine todo input -->
     </div>
     <!-- fine sezione todo -->
 
     <!-- Handlebars -->
     <script id="template" type="text/x-handlebars-template">
-      <li data-attr="{{id}}" class="list-element">
+      <li data-attr="{{id}}" class="todo-list-element">
         <span>{{text}}</span>
         <button type="button" name="button" class="delete">X</button>
       </li>

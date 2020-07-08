@@ -17,7 +17,7 @@ $(document).ready(
 
     //avvia funzione al click sul bottone "X" (cancella)
     $(document).on("click", ".delete", function(){
-      var this_attr = $(this).parents(".list-element").attr("data-attr");
+      var this_attr = $(this).parents(".todo-list-element").attr("data-attr");
       removeElement(this_attr);
     });
   }
@@ -25,20 +25,20 @@ $(document).ready(
 
 //FUNZIONE visualizza elementi
 function getElement(){
-  //reset
-  $(".todo-list").html("");
-  $(".input").val("");
-
   $.ajax(
     {
       url: "http://157.230.17.132:3018/todos/",
       method: "GET",
       success: function (data) {
-        for (var i = 0; i < data.length; i++){
-          //Handlebars
-          var source = $("#template").html();
-          var template = Handlebars.compile(source);
+        //reset
+        $(".todo-list").html("");
+        $(".input").val("");
 
+        //Handlebars
+        var source = $("#template").html();
+        var template = Handlebars.compile(source);
+
+        for (var i = 0; i < data.length; i++){
           var dati = {
             id: data[i].id,
             text: data[i].text,
@@ -66,7 +66,7 @@ function addElement(){
         data: {
           "text" : todoElemento,
         },
-        success: function (data) {
+        success: function () {
           getElement();
         },
         error: function () {
@@ -83,7 +83,7 @@ function removeElement(this_attr){
     {
       url: "http://157.230.17.132:3018/todos/" + this_attr,
       method: "DELETE",
-      success: function (data) {
+      success: function () {
         getElement();
       },
       error: function () {
